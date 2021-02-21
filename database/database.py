@@ -149,3 +149,7 @@ def end_execution_step(execution_step_log_id):
 def get_task_id_with_execution_log_id(execution_log_id):
     """"""
     return exec_sql_return_scalar("SELECT task_id FROM execution_log WHERE id = %s", (execution_log_id,))
+
+def add_error(execution_step_log_id, ex, stack_trace):
+    """"""
+    insert_record("INSERT INTO execution_error (execution_step_log_id, message, stack_trace) SELECT %s, %s, %s RETURNING id;", (execution_step_log_id, str(ex), stack_trace,))

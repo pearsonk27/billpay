@@ -45,3 +45,8 @@ def run4():
 
 def run5():
     email.send_failure_message("test", "test_step", "test failure message")
+
+def run6():
+    bill_steps = BillSteps(None, "test")
+    bill_steps.test_throw_exception()
+    print("We should not get here")
