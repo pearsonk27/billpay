@@ -2,3 +2,4 @@ __pycache__
 web/views/my_info.py
 .idea
 .vscode
+.DS_Store

@@ -8,13 +8,13 @@ class StartPage:
         return "https://paynow7.speedpay.com/NationalGrid/index.asp"
 
     def cable_bill_link():
-        return "javascript:__doPostBack('ctl00$ctl00$LayoutArea$LeftMenu$transactionMenu1$rptTransactionMenu$ctl00$lbtnSelectTransaction','')"
+        return "//li/a[text()='Cable']"
 
     def electric_bill_link():
-        return "ctl00_ctl00_LayoutArea_LeftMenu_transactionMenu1_rptTransactionMenu_ctl02_lbtnSelectTransaction"
+        return "//li/a[text()='Light']"
 
     def water_bill_link():
-        return "ctl00_ctl00_LayoutArea_LeftMenu_transactionMenu1_rptTransactionMenu_ctl04_lbtnSelectTransaction"
+        return "//li/a[text()='Water']"
 
 
 class CableBill:
@@ -108,3 +108,12 @@ class CommonBill:
 
     def confirmation_dialog_proceed_button():
         return "ctl00$ctl00$LayoutArea$MainContent$Confirmation1$btnProceed"
+
+    def check_out_as_guest_button():
+        return "ctl00$ctl00$LayoutArea$MainContent$SignIn1$btnCheckOutGuest"
+
+    def submit_payment_button():
+        return "confirmPayment_modal"
+
+    def confirm_payment_button():
+        return "ctl00_ctl00_LayoutArea_MainContent_Confirmation1_btnModalSubmit"

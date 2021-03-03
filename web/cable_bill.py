@@ -1,15 +1,9 @@
 from selenium import webdriver
-from database import database
 from web.views import bill_steps
 
 def run():
     """"""
-    task_id = database.get_task_id("cableBill")
-    execution_log_id = database.start_task(task_id)
-    # Cable bill (14th of the month)
-    # Initiate driver
-    driver = webdriver.Chrome()
-    steps = bill_steps.BillSteps(driver, execution_log_id)
+    steps = bill_steps.BillSteps(webdriver.Chrome(), "cableBill")
     steps.go_to_norwood_start_page()
     # driver.get("https://unipaygold.unibank.com/transactioninfo.aspx?customerid=444")
     # Given website setup, you cannot get to the right link without starting the session with norwood id (444)
@@ -28,6 +22,8 @@ def run():
     # Submit form
     # driver.execute_script("javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$LayoutArea$MainContent$Cart1$rptCart$ctl02$btnCheckout&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))")
     steps.go_to_checkout()
+
+    steps.checkout_as_guest()
     # Set a lot of things (need multi set method)
     steps.set_address_info()
     # Next page is credit card info
@@ -36,5 +32,4 @@ def run():
 
     steps.confirm_payment()
 
-    driver.close()
-    database.end_task(execution_log_id)
+    steps.finish()

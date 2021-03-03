@@ -17,6 +17,8 @@ def run():
 
     steps.go_to_checkout()
 
+    steps.checkout_as_guest()
+
     steps.set_address_info()
 
     steps.toggle_credit_card_radio_button()

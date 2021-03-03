@@ -18,19 +18,21 @@ class BillSteps:
     def go_to_norwood_start_page(self):
         """Go to Norwood Start Page"""
         self.driver.get((bill_view_config.StartPage.norwood_bill_pay_start_page()))
+        time.sleep(3)
 
     def go_to_cable_bill_page(self):
         """Go to Norwood Cable Bill Page"""
-        self.driver.execute_script(bill_view_config.StartPage.cable_bill_link())
+        self.driver.find_element_by_xpath(bill_view_config.StartPage.cable_bill_link()).click()
+        time.sleep(3)
 
     def go_to_electric_bill_page(self):
         """Go to Norwood Electric Bill Page"""
-        self.driver.find_element_by_id(bill_view_config.StartPage.electric_bill_link()).click()
+        self.driver.find_element_by_xpath(bill_view_config.StartPage.electric_bill_link()).click()
         time.sleep(3)
     
     def go_to_water_bill_page(self):
         """Go to Norwood Water Bill Page"""
-        self.driver.find_element_by_id(bill_view_config.StartPage.water_bill_link()).click()
+        self.driver.find_element_by_xpath(bill_view_config.StartPage.water_bill_link()).click()
         time.sleep(3)
 
     def go_to_gas_bill_page(self):
@@ -125,6 +127,11 @@ class BillSteps:
         self.driver.find_element_by_name(bill_view_config.CommonBill.checkout_button()).click()
         time.sleep(3)
 
+    def checkout_as_guest(self):
+        """Click checkout as guest button"""
+        self.driver.find_element_by_name(bill_view_config.CommonBill.check_out_as_guest_button()).click()
+        time.sleep(3)
+
     def set_address_info(self):
         """Set Address Info"""
         elem6 = self.driver.find_element_by_name(bill_view_config.CommonBill.address_line1_text_box())
@@ -157,10 +164,11 @@ class BillSteps:
 
     def confirm_payment(self):
         """Confirm Payment"""
-        self.driver.execute_script(bill_view_config.CommonBill.show_confirmation_dialog_script())
+        # self.driver.execute_script(bill_view_config.CommonBill.show_confirmation_dialog_script())
+        self.driver.find_element_by_id(bill_view_config.CommonBill.submit_payment_button()).click()
         time.sleep(3)
-        self.driver.find_element_by_name(bill_view_config.CommonBill.confirmation_dialog_proceed_button()).click()
-        time.sleep(3)
+        self.driver.find_element_by_id(bill_view_config.CommonBill.confirm_payment_button()).click()
+        time.sleep(10)
 
     def make_gas_bill_payment(self):
         """Make gas bill payment"""
