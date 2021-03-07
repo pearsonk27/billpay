@@ -6,6 +6,9 @@ def cable_account_number():
 def my_name_last_first():
     return ""
 
+def my_name_first_last():
+    return ""
+
 def address_line_1():
     return ""
 

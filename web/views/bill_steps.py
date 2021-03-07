@@ -92,7 +92,7 @@ class BillSteps:
     def assert_name(self):
         """Enter Assert Name value"""
         elem2 = self.driver.find_element_by_name(bill_view_config.CableBill.name_text_box())
-        assert elem2.get_attribute("value") == my_info.my_name_last_first()
+        assert elem2.get_attribute("value") == my_info.my_name_first_last()
 
     def assert_electric_account_name(self):
         """Assert correct account name"""
