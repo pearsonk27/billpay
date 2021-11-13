@@ -159,7 +159,7 @@ class BillSteps:
         self.driver.find_element_by_xpath(bill_view_config.CommonBill.credit_card_expiration_date_month_dropdown(my_info.credit_card_expiration_month())).click()
         self.driver.find_element_by_xpath(bill_view_config.CommonBill.credit_card_expiration_year_dropdown(my_info.credit_card_expiration_year())).click()
         self.driver.find_element_by_name(bill_view_config.CommonBill.credit_card_cvv()).send_keys(my_info.credit_card_cvv())
-        self.driver.find_element_by_name(bill_view_config.CommonBill.payment_proceed_button()).click()
+        self.driver.find_element_by_id(bill_view_config.CommonBill.payment_proceed_button()).click()
         time.sleep(3)
 
     def confirm_payment(self):

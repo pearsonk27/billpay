@@ -101,7 +101,7 @@ class CommonBill:
         return "ctl00$ctl00$LayoutArea$MainContent$Paymethod1$tbCVV2"
 
     def payment_proceed_button():
-        return "ctl00$ctl00$LayoutArea$MainContent$Paymethod1$btnProceed"
+        return "ctl00_ctl00_LayoutArea_MainContent_Paymethod1_btnContinue"
 
     def show_confirmation_dialog_script():
         return "var dlg = $('#confirmPaymentModal').foundation('reveal','open',{css:{open:{'opacity':0,'visibility':'visible','display':'block'}}});dlg.appendTo(jQuery('form:first'));return false;"
@@ -114,6 +114,8 @@ class CommonBill:
 
     def submit_payment_button():
         return "confirmPayment_modal"
+
+    ## ctl00_ctl00_LayoutArea_MainContent_Paymethod1_btnContinue
 
     def confirm_payment_button():
         return "ctl00_ctl00_LayoutArea_MainContent_Confirmation1_btnModalSubmit"
